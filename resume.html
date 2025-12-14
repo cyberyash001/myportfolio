@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024"> 
+    
+    <title>Yash Sharma - Resume</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700;800;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #1e3a8a;       
+            --accent: #fbbf24;        
+            --sidebar-bg: #111827;    
+            --text-dark: #1f2937;     
+            --text-light: #4b5563;    
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact; 
+        }
+
+        /* SECURITY: Disable Text Selection */
+        body {
+            background: #525659; /* PDF Viewer Grey Background */
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+            font-family: 'Lato', sans-serif;
+            user-select: none; /* Text cannot be selected/copied */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .page {
+            background: white;
+            width: 210mm;
+            height: 296mm; /* Fixed A4 Height */
+            display: grid;
+            grid-template-columns: 34% 66%;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.5); /* Deep shadow for PDF feel */
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* --- LEFT SIDEBAR --- */
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            color: white;
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            position: relative;
+            border-right: 5px solid var(--accent);
+        }
+
+        /* FRAMED PHOTO STYLE */
+        .photo-frame {
+            text-align: center;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .profile-photo {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            border-radius: 8px;
+            border: 4px solid var(--white);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            display: block;
+            margin: 0 auto;
+            pointer-events: none; /* Extra security: Disables drag/click on image */
+        }
+
+        /* Sidebar Headers */
+        .side-title {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Items */
+        .contact-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: #d1d5db;
+            word-break: break-all;
+        }
+        .contact-item i { color: var(--accent); width: 16px; text-align: center; flex-shrink: 0; }
+        .contact-item a { color: #d1d5db; text-decoration: none; transition: 0.3s; pointer-events: auto; /* Re-enable click for links */ }
+        .contact-item a:hover { color: var(--accent); }
+
+        /* Education */
+        .edu-box { margin-bottom: 18px; }
+        .edu-degree { font-weight: 700; font-size: 0.9rem; color: var(--white); display: block; margin-bottom: 2px; }
+        .edu-school { font-size: 0.8rem; color: #9ca3af; display: block; margin-bottom: 2px; }
+        .edu-year { font-size: 0.75rem; color: var(--accent); font-weight: 700; }
+        .edu-detail { font-size: 0.75rem; color: #d1d5db; margin-top: 3px; font-style: italic; }
+
+        /* Skills Tags */
+        .skill-group { display: flex; flex-wrap: wrap; gap: 6px; }
+        .skill-tag {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #e5e7eb;
+        }
+
+        /* QR & Link */
+        .qr-area {
+            margin-top: auto;
+            text-align: center;
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            color: var(--text-dark);
+        }
+        .qr-img { width: 80px; pointer-events: none; }
+        .qr-link {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            word-break: break-all;
+            pointer-events: auto;
+        }
+        .qr-link:hover { text-decoration: underline; color: var(--text-dark); }
+
+
+        /* --- RIGHT MAIN CONTENT --- */
+        .main {
+            padding: 45px 35px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header { margin-bottom: 30px; }
+        .header h1 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            line-height: 1;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+        .header h2 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Content Sections */
+        .section-header {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-header::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: #e5e7eb;
+        }
+        .section-header i { color: var(--primary); font-size: 0.9rem; }
+
+        .summary {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        /* Project Cards */
+        .project-item { margin-bottom: 22px; position: relative; padding-left: 15px; }
+        .project-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+        .project-title { font-size: 1rem; font-weight: 700; color: var(--text-dark); }
+        .project-tag { font-size: 0.7rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; background: #f3f4f6; padding: 2px 6px; border-radius: 3px; }
+
+        .desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.5; }
+        .desc ul { padding-left: 16px; margin-top: 5px; }
+        .desc li { margin-bottom: 3px; }
+
+        /* Print Button (Hidden in Print) */
+        .no-print {
+            position: fixed; top: 20px; right: 20px;
+            background: var(--sidebar-bg); color: white;
+            padding: 10px 20px; border-radius: 8px;
+            cursor: pointer; font-weight: 700;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            border: 2px solid var(--accent);
+            z-index: 1000;
+        }
+
+        /* FORCE A4 PDF LAYOUT ON ALL DEVICES */
+        @page { size: A4; margin: 0; }
+        @media print {
+            body { background: none; padding: 0; display: block; }
+            .page { box-shadow: none; margin: 0; width: 210mm; height: 296mm; page-break-after: avoid; page-break-inside: avoid; }
+            .no-print { display: none; }
+            .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+        
+        /* Disable Mobile Stacking - Keep Sidebar-Main Split */
+        @media screen and (max-width: 900px) {
+            body { 
+                align-items: flex-start; 
+                overflow: auto; /* Enable scroll to see full A4 */
+                transform-origin: top left;
+            }
+            .page {
+                /* Keeps it A4 size even on phone, user zooms out */
+                min-width: 210mm; 
+                min-height: 296mm;
+            }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <button class="no-print" onclick="window.print()">
+        <i class="fas fa-print"></i> Download PDF
+    </button>
+
+    <div class="page">
+        <aside class="sidebar">
+            <div class="photo-frame">
+                <img src="photo.jpg" alt="Yash Sharma" class="profile-photo" ondragstart="return false;">
+            </div>
+
+            <div>
+                <div class="side-title">Contact</div>
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 9201980161</span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:yashsharmaup2008@gmail.com">yashsharmaup2008@gmail.com</a>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Indore, Madhya Pradesh</span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://linkedin.com/in/yashsharmax" target="_blank">in/yashsharmax</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="side-title">Education</div>
+                <div class="edu-box">
+                    <span class="edu-degree">Class 12th (PCM)</span>
+                    <span class="edu-school">School of Excellence Bal Vinay Mandir</span>
+                    <span class="edu-year">2025 - Present</span>
+                </div>
+                <div class="edu-box">
+                    <span class="edu-degree">Class 10th</span>
+                    <span class="edu-school">School of Excellence Bal Vinay Mandir</span>
+                    <span class="edu-year">Passed (86.6%)</span>
+                    <span class="edu-detail">Distinction in All Subjects</span>
+                </div>
+            </div>
+
+            <div>
+                <div class="side-title">Core Skills</div>
+                <div class="skill-group">
+                    <span class="skill-tag">HTML5 / CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Responsive Design</span>
+                    <span class="skill-tag">OSINT Research</span>
+                    <span class="skill-tag">Digital Footprinting</span>
+                    <span class="skill-tag">AI Prompting</span>
+                    <span class="skill-tag">Git / GitHub</span>
+                    <span class="skill-tag">VS Code</span>
+                </div>
+            </div>
+
+            <div class="qr-area">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://portfolioyashx.netlify.app/" alt="Portfolio QR" class="qr-img" ondragstart="return false;">
+                <a href="https://portfolioyashx.netlify.app/" target="_blank" class="qr-link">
+                    portfolioyashx.netlify.app <i class="fas fa-external-link-alt" style="font-size:0.6rem;"></i>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="header">
+                <h1>Yash Sharma</h1>
+                <h2>Frontend Developer & OSINT Researcher</h2>
+            </div>
+
+            <div class="summary">
+                A tech-oriented Class 12th (PCM) student with a strong aptitude for Web Development and Digital Research. Skilled in combining technical coding expertise with investigative OSINT methodologies. Proficient in leveraging modern AI tools to accelerate development workflows. Seeking an opportunity to apply analytical thinking and technical skills in a challenging environment.
+            </div>
+
+            <div>
+                <div class="section-header">
+                    <i class="fas fa-laptop-code"></i> Key Projects
+                </div>
+
+                <div class="project-item">
+                    <div class="project-top">
+                        <span class="project-title">Bilingual School Website</span>
+                        <span class="project-tag">Web Development</span>
+                    </div>
+                    <div class="desc">
+                        Designed a responsive static website for 'School of Excellence Bal Vinay Mandir' to digitize their information system.
+                        <ul>
+                            <li><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript (AI-Assisted logic).</li>
+                            <li>Engineered a custom dual-language toggle (Hindi/English) for wider accessibility.</li>
+                            <li>Solved complex UI responsiveness challenges using CSS Grid for seamless mobile performance.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-top">
+                        <span class="project-title">Interactive Personal Portfolio</span>
+                        <span class="project-tag">Frontend Design</span>
+                    </div>
+                    <div class="desc">
+                        Built a high-performance personal brand website to showcase technical projects professionally.
+                        <ul>
+                            <li>Implemented advanced frontend features like <strong>3D Tilt Effects</strong> and particle backgrounds.</li>
+                            <li>Integrated a secure, serverless contact form using <strong>Web3Forms API</strong>.</li>
+                            <li>Optimized assets for fast loading speeds and cross-browser compatibility.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-header">
+                    <i class="fas fa-search"></i> Research & Interests
+                </div>
+                <div class="desc">
+                    <ul>
+                        <li><strong>OSINT & Digital Footprinting:</strong> Actively researching techniques to gather, analyze, and interpret publicly available information for digital investigation.</li>
+                        <li><strong>Strategic Thinking:</strong> Competitive Chess player focusing on long-term strategy and pattern recognition.</li>
+                        <li><strong>Tech Exploration:</strong> Continuously exploring emerging AI technologies to automate coding workflows.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // SECURITY SCRIPT
+        document.onkeydown = function(e) {
+            // Block F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S
+            if(e.keyCode == 123) return false; 
+            if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))) return false;
+            if(e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'S'.charCodeAt(0))) return false;
+        }
+    </script>
+
+</body>
+</html>
