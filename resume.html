@@ -11,9 +11,9 @@
 
     <style>
         :root {
-            --primary: #1e3a8a;       
-            --accent: #fbbf24;        
-            --sidebar-bg: #111827;    
+            --primary: #1e3a8a;       /* Deep Blue */
+            --accent: #fbbf24;        /* Golden Accent */
+            --sidebar-bg: #111827;    /* Dark Background */
             --text-dark: #1f2937;     
             --text-light: #4b5563;    
             --white: #ffffff;
@@ -28,12 +28,12 @@
 
         /* SECURITY: Disable Text Selection */
         body {
-            background: #525659; /* PDF Viewer Grey Background */
+            background: #525659;
             display: flex;
             justify-content: center;
             padding: 40px;
             font-family: 'Lato', sans-serif;
-            user-select: none; /* Text cannot be selected/copied */
+            user-select: none; 
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -45,7 +45,7 @@
             height: 296mm; /* Fixed A4 Height */
             display: grid;
             grid-template-columns: 34% 66%;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.5); /* Deep shadow for PDF feel */
+            box-shadow: 0 10px 50px rgba(0,0,0,0.5);
             overflow: hidden;
             position: relative;
         }
@@ -59,10 +59,10 @@
             flex-direction: column;
             gap: 30px;
             position: relative;
-            border-right: 5px solid var(--accent);
+            border-right: 5px solid var(--accent); /* Golden right border */
         }
 
-        /* FRAMED PHOTO STYLE */
+        /* FRAMED PHOTO STYLE (UPDATED) */
         .photo-frame {
             text-align: center;
             margin-bottom: 15px;
@@ -77,14 +77,15 @@
             max-width: 150px;
             height: auto;
             border-radius: 8px;
-            border: 4px solid var(--white);
+            /* UPDATED BORDER COLOR TO ACCENT (GOLDEN) */
+            border: 4px solid var(--accent); 
             box-shadow: 0 8px 20px rgba(0,0,0,0.4);
             display: block;
             margin: 0 auto;
-            pointer-events: none; /* Extra security: Disables drag/click on image */
+            pointer-events: none;
         }
 
-        /* Sidebar Headers */
+        /* Sidebar Headers (Golden Accent) */
         .side-title {
             font-family: 'Raleway', sans-serif;
             font-size: 0.9rem;
@@ -108,7 +109,7 @@
             word-break: break-all;
         }
         .contact-item i { color: var(--accent); width: 16px; text-align: center; flex-shrink: 0; }
-        .contact-item a { color: #d1d5db; text-decoration: none; transition: 0.3s; pointer-events: auto; /* Re-enable click for links */ }
+        .contact-item a { color: #d1d5db; text-decoration: none; transition: 0.3s; pointer-events: auto; }
         .contact-item a:hover { color: var(--accent); }
 
         /* Education */
@@ -246,7 +247,7 @@
             z-index: 1000;
         }
 
-        /* FORCE A4 PDF LAYOUT ON ALL DEVICES */
+        /* FORCE A4 PDF LAYOUT */
         @page { size: A4; margin: 0; }
         @media print {
             body { background: none; padding: 0; display: block; }
@@ -255,18 +256,10 @@
             .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         }
         
-        /* Disable Mobile Stacking - Keep Sidebar-Main Split */
+        /* Layout Lock for Mobile */
         @media screen and (max-width: 900px) {
-            body { 
-                align-items: flex-start; 
-                overflow: auto; /* Enable scroll to see full A4 */
-                transform-origin: top left;
-            }
-            .page {
-                /* Keeps it A4 size even on phone, user zooms out */
-                min-width: 210mm; 
-                min-height: 296mm;
-            }
+            body { align-items: flex-start; overflow: auto; transform-origin: top left; }
+            .page { min-width: 210mm; min-height: 296mm; }
         }
     </style>
 </head>
@@ -406,7 +399,6 @@
     <script>
         // SECURITY SCRIPT
         document.onkeydown = function(e) {
-            // Block F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S
             if(e.keyCode == 123) return false; 
             if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))) return false;
             if(e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'S'.charCodeAt(0))) return false;
