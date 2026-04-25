@@ -57,15 +57,15 @@
             padding: 30px 25px;
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 25px;
             position: relative;
-            border-right: 5px solid var(--accent); /* Golden right border */
+            border-right: 5px solid var(--accent);
         }
 
         /* FRAMED PHOTO STYLE */
         .photo-frame {
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
             padding: 12px;
             background: rgba(255,255,255,0.05);
             border-radius: 15px;
@@ -152,16 +152,15 @@
         }
         .qr-link:hover { text-decoration: underline; color: var(--text-dark); }
 
-
         /* --- RIGHT MAIN CONTENT --- */
         .main {
-            padding: 45px 35px;
+            padding: 40px 35px;
             display: flex;
             flex-direction: column;
         }
 
         /* Header */
-        .header { margin-bottom: 30px; }
+        .header { margin-bottom: 20px; }
         .header h1 {
             font-family: 'Raleway', sans-serif;
             font-size: 2.8rem;
@@ -188,7 +187,7 @@
             color: var(--text-dark);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -204,13 +203,13 @@
         .summary {
             font-size: 0.9rem;
             color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 30px;
+            line-height: 1.5;
+            margin-bottom: 25px;
             text-align: justify;
         }
 
         /* Project Cards */
-        .project-item { margin-bottom: 22px; position: relative; padding-left: 15px; }
+        .project-item { margin-bottom: 14px; position: relative; padding-left: 15px; }
         .project-item::before {
             content: '';
             position: absolute;
@@ -226,14 +225,18 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
         }
-        .project-title { font-size: 1rem; font-weight: 700; color: var(--text-dark); }
-        .project-tag { font-size: 0.7rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; background: #f3f4f6; padding: 2px 6px; border-radius: 3px; }
+        .project-title { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); }
+        .project-title a { color: var(--primary); text-decoration: none; margin-left: 5px; }
+        .project-tag { font-size: 0.65rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; background: #f3f4f6; padding: 2px 6px; border-radius: 3px; }
+        
+        .project-link { display: block; font-size: 0.75rem; color: var(--primary); font-weight: 600; text-decoration: none; margin-bottom: 4px; }
+        .project-link:hover { text-decoration: underline; color: var(--text-dark); }
 
-        .desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.5; }
-        .desc ul { padding-left: 16px; margin-top: 5px; }
-        .desc li { margin-bottom: 3px; }
+        .desc { font-size: 0.8rem; color: var(--text-light); line-height: 1.4; }
+        .desc ul { padding-left: 16px; margin-top: 4px; }
+        .desc li { margin-bottom: 2px; }
 
         /* Print Button (Hidden in Print) */
         .no-print {
@@ -301,7 +304,7 @@
                 <div class="edu-box">
                     <span class="edu-degree">Class 12th (PCM)</span>
                     <span class="edu-school">School of Excellence Bal Vinay Mandir</span>
-                    <span class="edu-year">2025 - Present</span>
+                    <span class="edu-year">Passed (62%)</span>
                 </div>
                 <div class="edu-box">
                     <span class="edu-degree">Class 10th</span>
@@ -316,12 +319,11 @@
                 <div class="skill-group">
                     <span class="skill-tag">HTML5 / CSS3</span>
                     <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Firebase & BaaS</span>
+                    <span class="skill-tag">API Integration</span>
                     <span class="skill-tag">Responsive Design</span>
-                    <span class="skill-tag">OSINT Research</span>
-                    <span class="skill-tag">Digital Footprinting</span>
                     <span class="skill-tag">AI Prompting</span>
                     <span class="skill-tag">Git / GitHub</span>
-                    <span class="skill-tag">VS Code</span>
                 </div>
             </div>
 
@@ -336,72 +338,93 @@
         <main class="main">
             <div class="header">
                 <h1>Yash Sharma</h1>
-                <h2>Frontend Developer & OSINT Researcher</h2>
+                <h2>Full-Stack Web Developer</h2>
             </div>
 
             <div class="summary">
-                Class 12th (PCM) student skilled in Web Development and OSINT research. Proficient in AI tools and modern coding workflows. Eager to apply technical skills in a challenging environment.
+                Innovative Full-Stack Developer with hands-on experience building scalable ERP systems and secure applications. Eager to leverage my skills in API integration, database management, and AI-assisted coding workflows to deliver high-impact web solutions.
             </div>
 
             <div>
                 <div class="section-header">
-                    <i class="fas fa-laptop-code"></i> Key Projects
+                    <i class="fas fa-laptop-code"></i> Live Projects
                 </div>
 
                 <div class="project-item">
                     <div class="project-top">
-                        <span class="project-title">Board Prep - Student Portal</span>
-                        <span class="project-tag">Full Stack App</span>
+                        <span class="project-title">DigiShala - Cloud School ERP <a href="https://digishala.netlify.app" target="_blank"><i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i></a></span>
+                        <span class="project-tag">Full Stack</span>
                     </div>
+                    <a href="https://digishala.netlify.app" target="_blank" class="project-link">https://digishala.netlify.app</a>
+                    <div class="desc">
+                        A comprehensive school management system designed for Tier-2/3 institutions.
+                        <ul>
+                            <li><strong>Tech Stack:</strong> HTML, CSS, JavaScript, Firebase.</li>
+                            <li>Engineered secure admin dashboards and real-time database structures.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-top">
+                        <span class="project-title">Mission Boards Platform <a href="https://missionboards.netlify.app/" target="_blank"><i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i></a></span>
+                        <span class="project-tag">Frontend & Auth</span>
+                    </div>
+                    <a href="https://missionboards.netlify.app/" target="_blank" class="project-link">https://missionboards.netlify.app</a>
                     <div class="desc">
                         A dynamic study management platform for board exam preparation.
                         <ul>
-                            <li><strong>Tech Stack:</strong> HTML, CSS, JS, Firebase (Auth & Firestore).</li>
-                            <li>Features secure <strong>User Login</strong> and a real-time Admin Panel for content updates.</li>
-                            <li>Includes 'Daily Streak' tracking and an Issue Reporting system.</li>
+                            <li>Features secure <strong>User Login</strong> and an Issue Reporting system.</li>
+                            <li>Includes a gamified 'Daily Streak' tracking mechanism.</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="project-item">
                     <div class="project-top">
-                        <span class="project-title">Bilingual School Website</span>
-                        <span class="project-tag">Web Development</span>
+                        <span class="project-title">SecretLink Generator <a href="https://secretlinkx.netlify.app/" target="_blank"><i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i></a></span>
+                        <span class="project-tag">Web Utility</span>
                     </div>
+                    <a href="https://secretlinkx.netlify.app/" target="_blank" class="project-link">https://secretlinkx.netlify.app</a>
                     <div class="desc">
-                        Digitized the information system for 'School of Excellence Bal Vinay Mandir'.
+                        A fast and secure web utility designed for generating private, shareable links.
                         <ul>
-                            <li><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript.</li>
-                            <li>Built a custom Hindi/English language toggle for wider accessibility.</li>
-                            <li>Optimized UI with CSS Grid for seamless mobile performance.</li>
+                            <li>Focuses on streamlined UI/UX for quick data sharing and confidentiality.</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="project-item">
                     <div class="project-top">
-                        <span class="project-title">Interactive Personal Portfolio</span>
-                        <span class="project-tag">Frontend Design</span>
+                        <span class="project-title">Internal School Survey Tool</span>
+                        <span class="project-tag">Data Collection</span>
                     </div>
                     <div class="desc">
-                        A high-performance personal website showcasing technical projects.
-                        <ul>
-                            <li>Implemented immersive UI features like <strong>3D Tilt Effects</strong> and particle backgrounds.</li>
-                            <li>Integrated a secure, serverless contact form using <strong>Web3Forms API</strong>.</li>
-                        </ul>
+                        Developed a dedicated data collection and survey platform for school administration to securely gather and manage internal feedback.
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-top">
+                        <span class="project-title">EBVM Bilingual Website <a href="https://ebvmindore.netlify.app/" target="_blank"><i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i></a></span>
+                        <span class="project-tag">UI/UX</span>
+                    </div>
+                    <a href="https://ebvmindore.netlify.app/" target="_blank" class="project-link">https://ebvmindore.netlify.app</a>
+                    <div class="desc">
+                        Digitized the information system for 'School of Excellence Bal Vinay Mandir' with a custom Hindi/English language toggle.
                     </div>
                 </div>
             </div> 
 
             <div>
                 <div class="section-header">
-                    <i class="fas fa-search"></i> Research & Interests
+                    <i class="fas fa-lightbulb"></i> Research & Interests
                 </div>
                 <div class="desc">
                     <ul>
-                        <li><strong>OSINT & Digital Footprinting:</strong> Actively researching techniques to gather, analyze, and interpret publicly available information for digital investigation.</li>
-                        <li><strong>Strategic Thinking:</strong> Competitive Chess player focusing on long-term strategy and pattern recognition.</li>
-                        <li><strong>Tech Exploration:</strong> Continuously exploring emerging AI technologies to automate coding workflows.</li>
+                        <li><strong>Tech Exploration (<a href="https://inspiredyash.netlify.app/" target="_blank" style="color:var(--primary); text-decoration:none;">Inspired Yash</a>):</strong> Curating a personal web space to present and document innovative technology concepts and ideas.</li>
+                        <li><strong>Digital Security:</strong> Passionate about learning secure coding practices and system architectures to build defense mechanisms.</li>
+                        <li><strong>Strategic Thinking:</strong> Competitive Chess player focusing on long-term strategy and logic building.</li>
                     </ul>
                 </div>
             </div>
